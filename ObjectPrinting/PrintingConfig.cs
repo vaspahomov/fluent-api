@@ -37,5 +37,20 @@ namespace ObjectPrinting
             }
             return sb.ToString();
         }
+
+        public PrintingConfig<TOwner> Exclude<TPropType>()
+        {
+            return this;
+        }
+
+        public PrintingConfig<TOwner> ChangeSerializeMethod<T>(Func<TOwner, string> func)
+        {
+            return this;
+        }
+
+        public PropertyPrintingConfig<TOwner, TPropType> Printing<TPropType>()
+        {
+            return new PropertyPrintingConfig<TOwner, TPropType>(this);
+        }
     }
 }
